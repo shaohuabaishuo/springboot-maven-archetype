@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>${artifactId}-parent</artifactId>
+    <version>${version}</version>
+    <packaging>pom</packaging>
+    <groupId>${groupId}</groupId>
+
+    <name>${artifactId}-parent</name>
+    <description>${artifactId}-parent</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-boot-starter-web.version>2.0.3.RELEASE</spring-boot-starter-web.version>
+        <spring-cloud-starter-openfeign.version>2.0.0.RELEASE</spring-cloud-starter-openfeign.version>
+        <spring-cloud-starter-netflix-hystrix.version>2.0.0.RELEASE</spring-cloud-starter-netflix-hystrix.version>
+        <fastjson.version>1.2.73</fastjson.version>
+        <druid.spring.boot.starter.version>1.1.23</druid.spring.boot.starter.version>
+        <mysql.connector.java.version>5.1.41</mysql.connector.java.version>
+        <pagehelper.spring.boot.version>1.2.12</pagehelper.spring.boot.version>
+        <mybatis.spring.boot.starter.version>1.3.0</mybatis.spring.boot.starter.version>
+        <mybatis-plus-boot-starter.version>2.3</mybatis-plus-boot-starter.version>
+        <spring.jdbc.version>5.2.8.RELEASE</spring.jdbc.version>
+        <swagger.modles.version>1.6.2</swagger.modles.version>
+        <springfox.swagger2.version>2.9.2</springfox.swagger2.version>
+        <feign.httpclient.version>9.5.1</feign.httpclient.version>
+        <poi.version>3.17</poi.version>
+        <xmlbeans.version>2.3.0</xmlbeans.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot-starter-web.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>${spring-cloud-starter-openfeign.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <version>${spring-cloud-starter-netflix-hystrix.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox.swagger2.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox.swagger2.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-models</artifactId>
+            <version>${swagger.modles.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>${groupId}</groupId>
+                <artifactId>${rootArtifactId}-app-service</artifactId>
+                <version>${version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${groupId}</groupId>
+                <artifactId>${rootArtifactId}-common</artifactId>
+                <version>${version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${groupId}</groupId>
+                <artifactId>${rootArtifactId}-domain</artifactId>
+                <version>${version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${groupId}</groupId>
+                <artifactId>${rootArtifactId}-facade</artifactId>
+                <version>${version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${groupId}</groupId>
+                <artifactId>${rootArtifactId}-integration-remote</artifactId>
+                <version>${version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${groupId}</groupId>
+                <artifactId>${rootArtifactId}-integration-dal</artifactId>
+                <version>${version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.spring.boot.starter.version}</version>
+            </dependency>
+
+            <!-- mybatis-plus begin -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+            <!-- mybatis-plus end -->
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.spring.boot.starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connector.java.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.spring.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-httpclient</artifactId>
+                <version>${feign.httpclient.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- excel依赖 start -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml-schemas</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.xmlbeans</groupId>
+                <artifactId>xmlbeans</artifactId>
+                <version>${xmlbeans.version}</version>
+            </dependency>
+            <!-- excel依赖 end -->
+
+
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>${rootArtifactId}-app-service</module>
+        <module>${rootArtifactId}-common</module>
+        <module>${rootArtifactId}-domain</module>
+        <module>${rootArtifactId}-facade</module>
+        <module>${rootArtifactId}-integration-remote</module>
+        <module>${rootArtifactId}-integration-dal</module>
+        <module>${rootArtifactId}-test</module>
+    </modules>
+
+    <profiles>
+        <profile>
+            <!--prd env-->
+            <id>prd</id>
+            <properties>
+                <profiles.active>prd</profiles.active>
+            </properties>
+        </profile>
+        <profile>
+            <!--local env-->
+            <id>local</id>
+            <properties>
+                <profiles.active>local</profiles.active>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <!--test env-->
+            <id>test</id>
+            <properties>
+                <profiles.active>test</profiles.active>
+            </properties>
+        </profile>
+        <profile>
+            <!--UT env-->
+            <id>ut</id>
+            <properties>
+                <profiles.active>ut</profiles.active>
+            </properties>
+        </profile>
+        <profile>
+            <!-- tuhutest env -->
+            <id>tuhutest</id>
+            <properties>
+                <profiles.active>tuhutest</profiles.active>
+            </properties>
+        </profile>
+    </profiles>
+</project>
